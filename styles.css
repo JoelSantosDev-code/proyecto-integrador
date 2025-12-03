@@ -30,31 +30,67 @@
 }
 
 body {
-    height: 100%;
+    min-width: 320px;
+    width: 100%;
+    height: 100vh;
     background-color: var(--color-primario);
     text-align: center;
-    padding: 20px;
+    padding: 0;
+    justify-content: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
+main {
+    padding: 100px 20px 20px 20px;
+}
 
 header {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    background-color: var(--color-secundario);
+    padding: 10px 10px;
+    border-radius: 20px;
+    border: 2px solid var(--color-1);
+    box-shadow: 0 4px 12px rgba(247, 243, 12, 0.2);
+    z-index: 1000;
+}
+
+#container-section {
+    list-style: none;
+    display: flex;
+    margin-left: 10px;
+    gap: 20px;
+}
+
+#container-section li a {
+    text-decoration: none;
+    color: var(--color-4);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#container-section li a:hover {
+    transition: ease-in-out 0.3s;
+    color: var(--color-2);
+    border: 2px solid var(--color-2);
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 /*Estilos Dark Mode*/
 #toogle-theme {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 26px;
+    width: 54px;
+    height: 30px;
     background-color: #ccc;
     border-radius: 34px;
-
 }
 
 #toogle-theme input {
@@ -62,21 +98,23 @@ header {
 }
 
 .slider {
-    content: "";
-    width: 22px;
-    height: 22px;
-    background-color: #fff;
-    border-radius: 26px;
+    position: absolute;
     cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
     transition: background-color 0.3s ease;
-
 }
 
 .slider::before {
     position: absolute;
     content: "";
-    height: 22px;
-    width: 22px;
+    color: var(--color-4);
+    height: 26px;
+    width: 26px;
     left: 2px;
     top: 2px;
     bottom: 2px;
@@ -85,26 +123,126 @@ header {
     transition: transform 0.3s ease;
 }
 
+/* Ícono de fondo (moon a la derecha en modo light) */
+.slider::after {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    right: 6px;
+    top: 6px;
+    background-image: url('./assets/moon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+
 input:checked+.slider::before {
     transform: translateX(24px);
 }
 
-h1 {
-    font-size: 2.5rem;
+/* Ícono de fondo cambia a sun a la izquierda en modo dark */
+input:checked+.slider::after {
+    left: 6px;
+    right: auto;
+    background-image: url('./assets/sun.png');
+    background-color: inherit;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-#amarillo {
+h1 {
+    cursor: pointer;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+#long-title {
+    display: none;
+}
+
+#short-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.5rem;
+}
+
+#short-title img {
+    width: 30px;
+    height: auto;
+}
+
+#short-title:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+
+.amarillo {
     color: var(--color-1);
 }
 
-#azul {
+.azul {
     color: var(--color-2);
 }
 
-#rojo {
+.rojo {
     color: var(--color-3);
 }
 
+.general-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 80%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.country-container {
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid var(--color-2);
+    box-shadow:
+        0 4px 10px 2px rgba(78, 162, 240, 0.1),
+        4px 4px 15px rgba(78, 162, 240, 0.1);
+    text-align: left;
+    width: 100%;
+    color: var(--color-4);
+    height: 100%;
+}
+
+.country-flag {
+    display: inline-block;
+    width: 150px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.country-title {
+    display: inline-flex;
+    font-size: 2rem;
+    margin-top: 10px;
+    color: var(--color-2);
+    margin-left: 20px;
+    vertical-align: top;
+    margin-top: 30px;
+}
+
+.country-container li {
+    margin: 20px 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: var(--color-4);
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+}
 
 .card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -126,9 +264,23 @@ h1 {
     color: var(--color-4);
 }
 
+.card-image {
+    width: 95%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-image:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
 .card-population,
 .card-surface,
-.card-capital {
+.card-capital,
+.card-location {
     font-weight: bold;
     color: var(--color-4);
 }
@@ -148,6 +300,10 @@ p {
     margin-bottom: 15px;
 }
 
+.card-location {
+    margin-bottom: 15px;
+}
+
 sup {
     font-size: 0.6rem;
 }
@@ -156,12 +312,13 @@ sup {
 #cards-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .card {
-    width: 400px;
-    max-width: 400px;
+    width: 350px;
+    max-width: 350px;
     height: auto;
     background-color: var(--color-secundario);
     border-radius: 10px;
@@ -171,7 +328,7 @@ sup {
 }
 
 /* Tablet*/
-@media (min-width: 768px) {
+@media (min-width: 641px) and (max-width: 1024px) {
     #cards-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -180,21 +337,65 @@ sup {
     }
 
     .card {
-        width: 400px;
-        max-width: 400px;
+        width: 300px;
+        max-width: 320px;
         min-height: 400px;
         background-color: var(--color-secundario);
         border-radius: 10px;
         margin: 10px;
         border-left: 5px solid var(--color-1);
     }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-secundario);
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 2px solid var(--color-1);
+        box-shadow: 0 4px 12px rgba(247, 243, 12, 0.2);
+        z-index: 1000;
+    }
+
+    #container-section {
+        list-style: none;
+        display: flex;
+        margin-left: 10px;
+        gap: 20px;
+    }
+
+    #container-section li a {
+        text-decoration: none;
+        color: var(--color-4);
+        font-weight: bold;
+        font-size: 0.9rem;
+
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #long-title {
+        display: inline;
+    }
+
+    #short-title {
+        display: none;
+    }
 }
 
 /* Desktop */
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     #cards-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         align-items: stretch;
 
     }
@@ -208,4 +409,55 @@ sup {
         margin: 10px;
         border-left: 5px solid var(--color-1);
     }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-secundario);
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 2px solid var(--color-1);
+        box-shadow: 0 4px 12px rgba(247, 243, 12, 0.2);
+        z-index: 1000;
+    }
+
+    #container-section {
+        list-style: none;
+        display: flex;
+        margin-left: 10px;
+        gap: 30px;
+    }
+
+    #container-section li a {
+        text-decoration: none;
+        color: var(--color-4);
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+
+    #long-title {
+        display: inline;
+    }
+
+    #short-title {
+        display: none;
+    }
+}
+
+footer {
+    display: flex;
+    margin-top: 40px;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-3);
 }

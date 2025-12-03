@@ -9,8 +9,23 @@
 </head>
 
 <body>
+
     <header>
-        <h1><span id="amarillo">Descubre</span> <span id="azul">Colo</span><span id="rojo">mbia</span></h1>
+        <h1 id="general">
+            <a href="#cards-container" id="long-title">
+                <span class="amarillo">Colo</span><span class="azul">mb</span><span class="rojo">ia</span>
+            </a>
+            <a href="#cards-container" id="short-title">
+                <img src="./assets/logo.png" alt="Nube de mariposas amarillas">
+                <span class="amarillo">Co</span>
+            </a>
+        </h1>
+        <ul id="container-section">
+            <li id="turismo"><a href="#cards-container">Turismo</a></li>
+            <li id="departamentos"><a href="#cards-container">Departamentos</a></li>
+            <li id="gastronomia"><a href="#cards-container">Gastronomía</a></li>
+            <li id="mapas"><a href="#cards-container">Mapas</a></li>
+        </ul>
         <!-- Toogle theme switch -->
         <label id="toogle-theme">
             <input type="checkbox" id="theme-switch">
@@ -18,13 +33,18 @@
         </label>
     </header>
     <main>
+        <div id="general-container">
+            <!-- La card de info general se insertara aqui-->
+        </div>
+
         <div id="cards-container">
             <!-- Las cards se insertarán aquí dinámicamente -->
 
         </div>
+
     </main>
     <footer>
-        <p>Proyecto Integrador - Joel Santos - Coderhouse</p>
+        <p>Proyecto Integrador - Joel Santos - Coderhouse - 2025</p>
     </footer>
     <script src="index.js"></script>
 </body>
