@@ -2,7 +2,7 @@
 
 <h2>Descripcion general</h2>
 <p>
-  En este proyecto integrador,  se desarrollos una aplicación web dinámica
+  En este proyecto integrador,  se desarrollo una aplicación web dinámica
   e interactiva que consume datos de APIs públicas. El objetivo es consolidar 
   todos los conocimientos adquiridos durante el Módulo 1: Web Foundations & Coding Skills.
 </p>
@@ -33,7 +33,6 @@ Este proyecto integrador consolida los conocimientos adquiridos en el **Módulo 
 
 - **Tema Claro/Oscuro**: Switch para alternar entre modos con persistencia en LocalStorage
 - **Diseño Responsive**: Adaptado para móvil, tablet y desktop
-- **Menú Hamburguesa**: Sidebar deslizable en versiones móviles
 - **Modal de Imágenes**: Visualización de imágenes en tamaño completo
 - **Animaciones Suaves**: Transiciones y efectos hover
 - **Cards Interactivas**: Información organizada en tarjetas visuales
@@ -136,6 +135,7 @@ Click en cualquier imagen para verla en tamaño completo con:
 - [ ] Añadir sistema de favoritos
 - [ ] Implementar internacionalización (i18n)
 - [ ] Agregar modo offline con Service Workers
+- [ ] Agregar menu hamburguesa que reemplace el header en la versión para movil
 - [ ] Optimizar carga de imágenes con lazy loading
 
 ---
