@@ -144,7 +144,7 @@ Click en cualquier imagen para verla en tamaño completo con:
 **Joel Santos**
 
 - GitHub: [@joelsantosdev-code](https://github.com/joelsantosdev-code)
-- Email: tu-email@ejemplo.com
+- Email: joelsantfer@gmail.com
 
 ---
 
