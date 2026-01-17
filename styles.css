@@ -500,6 +500,8 @@ sup {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         align-items: stretch;
+        column-gap: 10px;
+        row-gap: 20px;
 
     }
 
